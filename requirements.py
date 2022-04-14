@@ -12,13 +12,13 @@ def pip_install(proxy: Optional[str], args: List[str]) -> None:
         # pip.main(["install", f"--proxy={proxy}", *args])
         subprocess.run(
             [sys.executable, "-m", "pip", "install", *args],
-            capture_output=False,
+            # capture_output=False,
             check=True,
         )
     else:
         subprocess.run(
             [sys.executable, "-m", "pip", "install", f"--proxy={proxy}", *args],
-            capture_output=False,
+            # capture_output=False,
             check=True,
         )
 
@@ -49,8 +49,8 @@ def main():
     Pillow
     pymouse
     numpy==1.19.5
-    torch==1.7.0+{"cpu" if args.cuda is None else "cu" + args.cuda} -f https://download.pytorch.org/whl/torch_stable.html
-    torchvision==0.8.1+{"cpu" if args.cuda is None else "cu" + args.cuda} --no-deps -f https://download.pytorch.org/whl/torch_stable.html
+    torch==1.8.2+{"cpu" if args.cuda is None else "cu" + args.cuda} -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
+    torchvision==0.9.2+{"cpu" if args.cuda is None else "cu" + args.cuda} --no-deps -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
     thop --no-deps
     git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
     """
